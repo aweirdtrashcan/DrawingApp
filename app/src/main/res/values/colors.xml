@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#fff</color>
+    <color name="skin">#ffcc99</color>
+    <color name="black">#000</color>
+    <color name="red">#f00</color>
+    <color name="green">#0f0</color>
+    <color name="blue">#00f</color>
+    <color name="yellow">#ff0</color>
+    <color name="lollipop">#35a79c</color>
+    <color name="random">#a349b1</color>
+
+</resources>

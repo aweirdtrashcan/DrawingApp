@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DrawingApp</string>
+    <string name="small_brush_size">Small brush size</string>
+    <string name="medium_brush_size">Medium brush size</string>
+    <string name="large_brush_size">Large brush size</string>
+    <string name="brush_size">"Brush size: "</string>
+</resources>
