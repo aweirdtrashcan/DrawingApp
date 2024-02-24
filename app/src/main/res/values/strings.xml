@@ -4,4 +4,7 @@
     <string name="medium_brush_size">Medium brush size</string>
     <string name="large_brush_size">Large brush size</string>
     <string name="brush_size">"Brush size: "</string>
+    <string name="show_dialog_button">Show dialog button</string>
+    <string name="open_gallery_button">Open gallery button</string>
+    <string name="save_image_button">Save image button</string>
 </resources>

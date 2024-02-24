@@ -7,46 +7,24 @@
     tools:context=".presentation.drawing.DrawingActivity"
     android:background="@color/white">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ll_background"
+    <com.stimply.drawingapp.presentation.component.DrawingView
+        android:id="@+id/drawingView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/ll_paint_colors"
-        android:layout_margin="5dp">
-
-        <ImageView
-            android:id="@+id/iv_background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/paris"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-        <com.stimply.drawingapp.presentation.component.DrawingView
-            android:id="@+id/drawingView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"  />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_margin="5dp"  />
 
     <LinearLayout
         android:id="@+id/ll_paint_colors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/ll_background"
+        app:layout_constraintTop_toBottomOf="@id/drawingView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnShowDialog"
+        app:layout_constraintBottom_toTopOf="@id/ll_buttons"
         android:orientation="horizontal"
         android:gravity="center">
 
@@ -124,16 +102,52 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/btnShowDialog"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="5dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_brush"
-        app:layout_constraintTop_toBottomOf="@id/ll_background"
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ll_paint_colors"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnShowDialog"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_brush"
+            android:contentDescription="@string/show_dialog_button" />
+
+        <ImageButton
+            android:id="@+id/btnOpenGallery"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_gallery"
+            android:contentDescription="@string/open_gallery_button" />
+
+        <ImageButton
+            android:id="@+id/btnUndo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_undo"
+            android:contentDescription="@string/open_gallery_button" />
+
+        <ImageButton
+            android:id="@+id/btnSave"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_save"
+            android:contentDescription="@string/save_image_button" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

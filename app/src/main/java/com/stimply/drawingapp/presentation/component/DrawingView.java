@@ -1,17 +1,23 @@
 package com.stimply.drawingapp.presentation.component;
 
+import static com.stimply.drawingapp.presentation.util.AppUtil.showSnackbar;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
+
+import com.stimply.drawingapp.data.local.SaveImageThread;
 
 import java.util.ArrayList;
 
@@ -27,7 +33,7 @@ public class DrawingView extends View {
     }
 
     private CustomPath drawPath;
-    private ArrayList<CustomPath> drawPaths;
+    private ArrayList<CustomPath> drawPaths = new ArrayList<>();
     private Bitmap canvasBitmap;
     private Paint drawPaint;
     private Paint canvasPaint;
@@ -46,8 +52,6 @@ public class DrawingView extends View {
         drawPath = new CustomPath(color, brushSize);
 
         canvasPaint = new Paint(Paint.DITHER_FLAG);
-
-        drawPaths = new ArrayList<>();
     }
 
     @Override
@@ -112,6 +116,27 @@ public class DrawingView extends View {
         Integer color = Color.parseColor(colorName);
         drawPath.setColor(color);
         this.color = color;
+    }
+
+    public void undo() {
+        try {
+            drawPaths.remove(drawPaths.size() - 1);
+            invalidate();
+        } catch (IndexOutOfBoundsException e) {
+            showSnackbar(this, "Nothing to be undoned");
+        }
+    }
+
+    public void setBackgroundBitmap(Bitmap bitmap) {
+        Rect destRect = new Rect(0, 0, getWidth(), getHeight());
+        canvas.drawBitmap(bitmap, null, destRect, canvasPaint);
+    }
+
+    public Bitmap getViewAsBitmap() {
+        Bitmap returnBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas targetCanvas = new Canvas(returnBitmap);
+        draw(targetCanvas);
+        return returnBitmap;
     }
 
     static private class CustomPath extends Path {
