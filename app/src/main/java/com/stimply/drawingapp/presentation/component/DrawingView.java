@@ -18,7 +18,11 @@ import java.util.ArrayList;
 public class DrawingView extends View {
     public DrawingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        setupDrawing();
+    }
 
+    public DrawingView(Context context) {
+        super(context);
         setupDrawing();
     }
 

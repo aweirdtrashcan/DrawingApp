@@ -58,7 +58,7 @@ public class DrawingActivity extends AppCompatActivity {
                 ContextCompat.getDrawable(DrawingActivity.this, R.drawable.pallete_normal)
         );
 
-        binding.drawingView.setColor((String)imgBtn.getTag());
+        binding.drawingView.setColor(imgBtn.getTag().toString());
 
         imgBtn.setImageDrawable(
                 ContextCompat.getDrawable(DrawingActivity.this, R.drawable.pallete_pressed)
